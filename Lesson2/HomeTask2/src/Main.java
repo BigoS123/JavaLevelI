@@ -5,24 +5,24 @@ public class Main {
 		
 		char initialOfName;
 		String surname;
-		Short temperature;
-		Float preciseTemperature;
+		short temperature;
+		float preciseTemperature;
 		short studentsInClass;
-		Float bodyWeight;
-		Float bodyHeight;
-		int mountEverestHeight;
+		float bodyWeight;
+		float bodyHeight;
+		long mountEverestHeight;
 		boolean isMailboxEmpty;
 		long neuronsInBrain;
 		double piNumber;
 		int facebookUsers;
 		
 		initialOfName = 'M';
-		surname = "£anohca";
+		surname = "Lanohca";
 		temperature = 24;
-		preciseTemperature = (float) 13.5;
+		preciseTemperature = 13.5f;
 		studentsInClass = 32;
-		bodyWeight = (float) 55.4;
-		bodyHeight = (float) 162.5;
+		bodyWeight =  55.4f;
+		bodyHeight =  162.5f;
 		mountEverestHeight = 884800;
 		isMailboxEmpty = true;
 		

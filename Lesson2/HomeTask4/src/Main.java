@@ -5,19 +5,19 @@ public class Main {
 	public static void main(String[] args) {
 	
 	    int cathetusA; //przyprostok¹tna A
-		int cathetusB; //przyprostok¹tna B
+		int cathetusB; //przyprostokatna B
 		
 		System.out.println("Wprowadz przyprostok¹tn¹ A: ");
 		
 		Scanner odczyt1 = new Scanner(System.in);
 		
 	    cathetusA = odczyt1.nextInt();
-		
+		odczyt1.close();
 	    System.out.println("Wprowadz przyprostok¹tn¹ B: ");
 	    
 	    Scanner odczyt2 = new Scanner(System.in);
-	    
 	    cathetusB = odczyt2.nextInt();
+	    odczyt2.close();
 		
 		int hypotenuse; //przeciwprostok¹tna
 		
