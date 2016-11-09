@@ -27,7 +27,7 @@ public class Main {
 	System.out.println("Numer: " + number);
 	System.out.println("Czy jest prawo no¿ny: " + isRightFoot);
 	System.out.println("Czerwone kartki: " + redCards);
-	 System.out.println("Wprowadz pseudonim: "); 
+	System.out.println("Wprowadz pseudonim: "); 
 	
 	String pseudonim;
 	
