@@ -9,11 +9,11 @@ public class Main {
 		
 		int letters;
 		
-		Scanner odczyt = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Ile masz wiadomoœci? ");
 		
-		letters = odczyt.nextInt();
+		letters = scanner.nextInt();
 		
 		System.out.println(letters > 0 ? "Masz wiadomosc" : "Poczta jest pusta");
 

@@ -23,39 +23,33 @@ public class Main {
 		System.out.println("Wybierz figure by obliczyc jej pole");
 		
 		
-		Scanner odczyt1 = new Scanner(System.in);
-		task = odczyt1.nextInt();
+		Scanner scanner = new Scanner(System.in);
+		task = scanner.nextInt();
 		
 		switch(task)
 		{
 			case 1:
 				System.out.println("Wprowadz bok kwadratu:");
-				Scanner odczyt2 = new Scanner(System.in);
-				sideA = odczyt2.nextInt();
+				sideA = scanner.nextInt();
 				System.out.println("Pole kwadratu wynosi: " + sideA + " * " + sideA  + " = " + (sideA * sideA));
 				break;
 			case 2:
 				System.out.println("Wprowadz krotszy bok prostokata: ");
-				Scanner odczyt3 = new Scanner(System.in);
-				sideA = odczyt3.nextInt();
+				sideA = scanner.nextInt();
 				System.out.println("Wprowadz dluzszy bok prostokata: ");
-				Scanner odczyt4 = new Scanner(System.in);
-				sideB = odczyt4.nextInt();
+				sideB = scanner.nextInt();
 				System.out.println("Pole prostokata wynosi: " + sideA + " * " + sideB  + " = " + (sideA * sideB));
 				break;
 			case 3:	
 				System.out.println("Wprowadz promien kola:");
-				Scanner odczyt5 = new Scanner(System.in);
-				radius = odczyt5.nextInt();
+				radius = scanner.nextInt();
 				System.out.println("Pole kola wynosi: " + "3.14" + " * " + radius + " * " + radius + " = " + (3.14*radius*radius));
 				break;
 			case 4:
 				System.out.println("Wprowadz wysokosc trojkata:");
-				Scanner odczyt6 = new Scanner(System.in);
-				height = odczyt6.nextInt();
+				height = scanner.nextInt();
 				System.out.println("Wprowadz podstawe trojkata:");
-				Scanner odczyt7 = new Scanner(System.in);
-				base = odczyt7.nextInt();
+				base = scanner.nextInt();
 				System.out.println("Pole trojkata wynosi: " + height + " * " + base + " = " + (height*base));
 				break;
 		}
