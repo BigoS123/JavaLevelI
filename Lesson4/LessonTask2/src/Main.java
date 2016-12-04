@@ -22,9 +22,12 @@ public class Main {
 			
 			result = result * number;
 		
-		System.out.println("Wynik: " + result);
-	
+		
 		}
+			System.out.println("Wynik: " + result);
+		
+		System.out.println("Wynik przy pomocy funkcji math: " + Math.pow(number, index));	
+		
 	}
 
 }
