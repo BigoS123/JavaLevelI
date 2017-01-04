@@ -3,40 +3,35 @@ import java.util.Scanner;
 
 public class Main {
 
-	static int angels = 9;
-	static int[] sideLenght = new int[angels];
-	static int side;
-	static int circuit = 0;
-	static int a = 0;
+	static int[] sideLenght = new int[9];
+	
 
 	public static void main(String[] args) {
 
-		if (angels < 3) {
+		if (sideLenght.length < 3) {
 			System.out.println("Bledna iloscc katow");
 		} else {
 			System.out.println("Wprowadzona ilosc katow jest poprawna");
 			System.out.println();
-			if (angels < 7) {
+			if (sideLenght.length < 7) {
 				addingSideLenght();
 			} else {
 				generatingSideLenght();
 			}
 
+			showingSideLenght();
+			System.out.println();
+			System.out.println("Obwód wynosi: " + countingCircut());
+			
 		}
-		showingSideLenght();
-		countingCircut();
-	
-	
-	
-	
-	
+
 	}
 
 	public static void generatingSideLenght() {
 		Random generator = new Random();
 		for (int i = 0; i < sideLenght.length; i++) {
-			side = generator.nextInt((12) + 1);
-			sideLenght[i] = side;
+			sideLenght[i] = generator.nextInt(12) + 1;
+			
 
 		}
 	}
@@ -54,23 +49,22 @@ public class Main {
 
 		for (int i = 0; i < sideLenght.length; i++) {
 			System.out.println("Wprowadz dlugosc boku");
-			side = scanner.nextInt();
-			sideLenght[i] = side;
+			sideLenght[i] = scanner.nextInt();
+			
 
 		}
 
 	}
 
-	public static void countingCircut() {
-
-		do {
-			circuit = circuit + sideLenght[a];
-			a++;
-
-		} while (a != sideLenght.length);
-		System.out.println();
-		System.out.println("Obwód wynosi: " + circuit);
-
+	public static int countingCircut() {
+		int circuit = 0;
+		for(int i = 0; i < sideLenght.length; i++){
+			
+			circuit = circuit + sideLenght[i];
+			
+		}
+		
+		return circuit;
 	}
 
 }

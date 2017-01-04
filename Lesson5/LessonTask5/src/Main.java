@@ -4,51 +4,106 @@ import java.util.Scanner;
 public class Main {
 
 	static Random generator = new Random();
-	static String sudokuBoard[][];
+	final static int WIDTH = 9;
+	final static int HEIGHT = 9;
+	static char sudokuBoard[][] = new char[WIDTH][HEIGHT];
+	static char numbers[] = "123456789".toCharArray();
 
 	public static void main(String[] args) {
 
-		creatingSudokuBoard();
-		fillingBoard();
+		preparingSudokuBoard();
+		showMenu();
+		switch (chosingLevel()) {
+		case 1:
+			generatingSudokuBoard(50);
+			break;
+		case 2:
+			generatingSudokuBoard(40);
+			break;
+		case 3:
+			generatingSudokuBoard(30);
+			break;
+		case 4:
+			generatingSudokuBoard(25);
+			break;
+		default:
+			System.out.println("Program zostal zakonczony");
+			break;
+		}
+		showingBoard();
+		
+	}
+
+	public static void preparingSudokuBoard() {
+
+		for (int i = 0; i < WIDTH; i++) {
+			for (int j = 0; j < HEIGHT; j++) {
+				sudokuBoard[i][j] = '#';
+
+			}
+		}
 
 	}
 
-	public static void creatingSudokuBoard() {
+	public static void showingBoard() {
 
-		String sudokuBoard[][] = new String[9][9];
+		for (int i = 0; i < WIDTH; i++) {
+			for (int j = 0; j < HEIGHT; j++) {
+				System.out.print(sudokuBoard[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void showMenu() {
+		System.out.println("Dostepne poziomy rozgrywki: ");
+		System.out.println("1.Latwy");
+		System.out.println("2.Trudny");
+		System.out.println("3.Sredni");
+		System.out.println("4.Hard");
+		System.out.println("5.Zakoncz program");
+		System.out.println();
+
+	}
+
+	public static int chosingLevel() {
+		System.out.println("WYbierz poziom rozgrywki: ");
+		Scanner scanner = new Scanner(System.in);
+		return scanner.nextInt();
+	}
+
+	public static void generatingSudokuBoard(int numberOfDraws) {
+		Random generator = new Random();
+		int x;
+		int y;
+		int number;
+		
+		while(numberOfDraws != 0){
+			
+			x = generator.nextInt(WIDTH);
+			y = generator.nextInt(HEIGHT);
+			
+			if(sudokuBoard[x][y] == '#'){
+				number = generator.nextInt(9);
+				sudokuBoard[x][y] = numbers[number];
+				numberOfDraws--;
+			}
+			
+			
+		}
 
 	}
 
 	public static void fillingBoard() {
 
-		for (int i = 0; i < 9; i++) {
-			for (int a = 0; i < 9; a++) {
-
-				boolean b = generator.nextBoolean();
-
-				if (b == false) {
-					sudokuBoard[i][a] = " # ";
-				} else if (b == false) {
-					int c = generator.nextInt(9);
-					sudokuBoard[i][a] = c;
-
-				}
-
-			}
-
-		}
-
 	}
-
-	public static void showingResults() {
-
-		for (int i = 0; i < 9; i++) {
-			System.out.println(
-					sudokuBoard[i][1] + sudokuBoard[i][2] + sudokuBoard[i][3] + sudokuBoard[i][4] + sudokuBoard[i][5]
-							+ sudokuBoard[i][6] + sudokuBoard[i][7] + sudokuBoard[i][8] + sudokuBoard[i][9]);
-
-		}
-
-	}
+	//
+	// cout << "Dostepne poziomy rozgrywki: " << endl;
+	// cout << "1.Latwy" << endl;
+	// cout << "2.Trudny" << endl;
+	// cout << "3.Sredni" << endl;
+	// cout << "4.Hard" << endl;
+	// cout << "5.Zakoncz program" << endl;
+	// cout << endl;
 
 }
