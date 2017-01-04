@@ -13,17 +13,17 @@ public class Main {
 		int typeOfSchool = scanner.nextInt();
 		
 
-		int[] schoolSubjects;
-		int schoolMark;
+		double[] schoolSubjects;
+		double schoolMark;
 		Random generator = new Random();
 		if (typeOfSchool == 1) {
-			schoolSubjects = new int[4];
+			schoolSubjects = new double[4];
 			for (int i = 0; i < schoolSubjects.length; i++) {
 				schoolMark = generator.nextInt((6) + 1);
 				schoolSubjects[i] = schoolMark;
 				System.out.println("Ocena z przedmiotu nr " + (i + 1) + " wynosi " + schoolMark);
 			}
-			int marks = 0;
+			double marks = 0;
 			int a = 0;
 			do {
 				marks = marks + schoolSubjects[a];
@@ -32,13 +32,13 @@ public class Main {
 			} while (a != schoolSubjects.length);
 			System.out.println("Srednia wynosi wynosi: " + (marks / schoolSubjects.length));
 		} else if (typeOfSchool == 2) {
-			schoolSubjects = new int[6];
+			schoolSubjects = new double[6];
 			for (int i = 0; i < schoolSubjects.length; i++) {
 				schoolMark = generator.nextInt((6) + 1);
 				schoolSubjects[i] = schoolMark;
 				System.out.println("Ocena z przedmiotu nr " + (i + 1) + " wynosi " + schoolMark);
 			}
-			int marks = 0;
+			double marks = 0;
 			int a = 0;
 			do {
 				marks = marks + schoolSubjects[a];
@@ -48,18 +48,25 @@ public class Main {
 			System.out.println("Srednia wynosi wynosi: " + (marks / schoolSubjects.length));
 
 		} else if (typeOfSchool == 3) {
-			schoolSubjects = new int[7];
+			schoolSubjects = new double[7];
 			for (int i = 0; i < schoolSubjects.length; i++) {
 				schoolMark = generator.nextInt((6) + 1);
-				schoolSubjects[i] = schoolMark;
-				System.out.println("Ocena z przedmiotu nr " + (i + 1) + " wynosi " + schoolMark);
+				boolean b = generator.nextBoolean();
+				if(b == true){
+				
+				schoolSubjects[i] =	schoolMark + 0.5;
+				}
+				else{
+				schoolSubjects[i] =	schoolMark;
+				}
+				System.out.println("Ocena z przedmiotu nr " + (i + 1) + " wynosi " + schoolSubjects[i]);
 			}
-			int marks = 0;
+			double marks = 0;
 			int a = 0;
 			do {
 				marks = marks + schoolSubjects[a];
 				a++;
-
+			
 			} while (a != schoolSubjects.length);
 			System.out.println("Srednia wynosi wynosi: " + (marks / schoolSubjects.length));
 		}

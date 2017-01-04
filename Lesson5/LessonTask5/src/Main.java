@@ -31,7 +31,7 @@ public class Main {
 			break;
 		}
 		showingBoard();
-		
+
 	}
 
 	public static void preparingSudokuBoard() {
@@ -76,22 +76,54 @@ public class Main {
 		Random generator = new Random();
 		int x;
 		int y;
-		int number;
-		
-		while(numberOfDraws != 0){
-			
+		char number;
+		int randomNumber;
+
+		while (numberOfDraws != 0) {
+
 			x = generator.nextInt(WIDTH);
 			y = generator.nextInt(HEIGHT);
-			
-			if(sudokuBoard[x][y] == '#'){
-				number = generator.nextInt(9);
-				sudokuBoard[x][y] = numbers[number];
+
+			if (sudokuBoard[x][y] == '#') {
+				
+				do {
+					randomNumber = generator.nextInt(9);
+					number = numbers[randomNumber];
+				}
+				while (!isCompatibilewithSudokuRules(x, y, number));
+				sudokuBoard[x][y] = number;
 				numberOfDraws--;
 			}
-			
-			
+
 		}
 
+	}
+
+	public static boolean isCompatibilewithSudokuRules(int rowNumber, int columnNumber, char number) {
+		if (checkRow(rowNumber, number) || checkColumn(columnNumber, number)) {
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean checkRow(int rowNumber, char number) {
+
+		for (int i = 0; i < WIDTH; i++) {
+			if (sudokuBoard[rowNumber][i] == number) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean checkColumn(int columnNumber, char number) {
+
+		for (int i = 0; i < HEIGHT; i++) {
+			if (sudokuBoard[i][columnNumber] == number) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static void fillingBoard() {
