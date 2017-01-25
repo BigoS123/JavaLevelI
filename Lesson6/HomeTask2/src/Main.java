@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 public class Main {
 	static ArrayList<String> value = new ArrayList<String>();
-	static int number;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		showOperations();
 	}
 
@@ -20,8 +18,7 @@ public class Main {
 			System.out.println("3- wyswietl liste wartosci");
 			System.out.println("4- zastap wartosc");
 			System.out.println();
-			validateInputInt("Wybierz pozycje z menu");
-			switch (number) {
+			switch (validateInputInt("Wybierz pozycje z menu")) {
 			case 1:
 				addValue();
 				break;
@@ -33,7 +30,9 @@ public class Main {
 				showWholeList();
 				break;
 			case 4:
+
 				replaceValue();
+
 				break;
 			default:
 				System.out.println("Brak danej pozycji w menu");
@@ -60,20 +59,19 @@ public class Main {
 	}
 
 	public static void clearingConsole() {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 10; i++) {
 			System.out.println();
 		}
 	}
 
 	public static void replaceValue() {
-		System.out.println("Wprowadz pozycje wartosci");
-		Scanner sc1 = new Scanner(System.in);
-		int position = sc1.nextInt();
+		int positionToReplace = validatePositionIsOnList(validateInputInt("Wprowadz indeks pozycji"));
+
 		System.out.println("Wprowadz wartosc");
 		Scanner sc = new Scanner(System.in);
 
 		String usersValue = sc.nextLine();
-		value.add((position - 1), usersValue);
+		value.set((positionToReplace - 1), usersValue);
 	}
 
 	public static void showWholeList() {
@@ -82,15 +80,23 @@ public class Main {
 
 	public static int validateInputInt(String comunicate) {
 		Scanner sc = new Scanner(System.in);
-
-		do {
+		System.out.println(comunicate);
+		while (!sc.hasNextInt()) {
+			String input = sc.next();
+			System.out.println(" Nie poprawny typ danych " + input);
 			System.out.println(comunicate);
-			while (!sc.hasNextInt()) {
-				String input = sc.next();
-				System.out.printf("%s pozycja nie jest poprawna pozycja \n", input);
-			}
-			number = sc.nextInt();
-		} while (number < 0);
-		return number;
+		}
+		return sc.nextInt();
 	}
+
+	public static int validatePositionIsOnList(int position) {
+		Scanner sc = new Scanner(System.in);
+		while (position > value.size() || position < 0) {
+			System.out.println("Pozycja nr " + position + " nie istnieje !");
+			position = validateInputInt("Wprowadz pozycje jeszcze raz");
+		}
+		return position;
+
+	}
+
 }

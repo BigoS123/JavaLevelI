@@ -11,7 +11,7 @@ public class Main {
 	static String cipheredWord;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		generateCipher();
 		showCreatedCipher();
 		System.out.println(cipherWord("maciek"));

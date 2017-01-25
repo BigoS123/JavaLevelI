@@ -15,8 +15,6 @@ public class Main {
 	public static void showOperations() {
 
 		for (;;) {
-		
-
 			System.out.println("Menu");
 			System.out.println("1- dodaj produkt do listy zakupow");
 			System.out.println("2- usun produkt z listy zakupow");
@@ -57,6 +55,7 @@ public class Main {
 			while (!sc.hasNextInt()) {
 				String input = sc.next();
 				System.out.printf("%s pozycja nie jest poprawna pozycja \n", input);
+				System.out.println(comunicate);
 			}
 			number = sc.nextInt();
 		} while (number < 0);
