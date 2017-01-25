@@ -8,12 +8,14 @@ public class Main {
 	static String usersWord;
 	static char[] alphabetTable = "abcdefghijklmnoprstuwxyz".toCharArray();
 	static char[] cipher = new char[alphabetTable.length];
+	static String cipheredWord;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		generateCipher();
 		showCreatedCipher();
 		System.out.println(cipherWord("maciek"));
+		System.out.println(showCipheredWord());
 	}
 
 	public static void generateCipher() {
@@ -43,7 +45,21 @@ public class Main {
 		return false;
 
 	}
+	public static int validateInputInt(String comunicate) {
+		Scanner sc = new Scanner(System.in);
+		int number;
+		do {
+			System.out.println(comunicate);
+			while (!sc.hasNextInt()) {
+				String input = sc.next();
+				System.out.printf("%s pozycja nie jest poprawna pozycja \n", input);
+			}
+			number = sc.nextInt();
+		} while (number < 0);
+		return number;
+	
 
+	}
 	public static void scanWord() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Wprowadz haslo do zaszyfrowania");
@@ -52,7 +68,7 @@ public class Main {
 	}
 
 	public static String cipherWord(String word) {
-		char[] usersWord = word.toCharArray();
+		char[] usersWord = cipheredWord.toCharArray();
 		char[] cipherWord = new char[usersWord.length];
 
 		for (int k = 0; k < usersWord.length; k++) {
@@ -62,12 +78,25 @@ public class Main {
 					break;
 				}
 			}
+			 cipheredWord = String.valueOf(cipherWord);
 		}
+	
 		return String.valueOf(cipherWord);
 	}
 
-	public static void showCipheredWord() {
+	public static String showCipheredWord() {
+		char[] cipherWord = cipheredWord.toCharArray();
+		char[] usersWord = new char[cipherWord.length];
 
+		for (int k = 0; k < cipherWord.length; k++) {
+			for (int i = 0; i < alphabetTable.length; i++) {
+				if (alphabetTable[i] == cipherWord[k]) {
+					cipherWord[k] = usersWord[i];
+					break;
+				}
+			}
+		}
+		return String.valueOf(usersWord);
 	}
 
 	public static void showCreatedCipher() {

@@ -5,18 +5,17 @@ import java.util.Scanner;
 public class Main {
 	static ArrayList<String> shoppingList = new ArrayList<String>();
 	static ArrayList<Integer> shoppingListPrices = new ArrayList<Integer>();
+	static int number;
 
 	public static void main(String[] args) {
-		validateInputInt("podaj wartosc ");
-		System.out.println("przeszlo");
-		// showOperations();
+
+		 showOperations();
 	}
 
 	public static void showOperations() {
 
 		for (;;) {
-
-			Scanner sc = new Scanner(System.in);
+		
 
 			System.out.println("Menu");
 			System.out.println("1- dodaj produkt do listy zakupow");
@@ -24,9 +23,8 @@ public class Main {
 			System.out.println("3- wyswietl liste zakupow");
 			System.out.println("4- zakoncz zakupy");
 			System.out.println();
-
-			int menuPosition = sc.nextInt();
-			switch (menuPosition) {
+			validateInputInt("Wybierz pozycje z menu");
+			switch (number) {
 			case 1:
 				addProduct();
 				break;
@@ -51,17 +49,19 @@ public class Main {
 		}
 	}
 
-	public static void validateInputInt(String comunicate) {
+	public static int validateInputInt(String comunicate) {
 		Scanner sc = new Scanner(System.in);
-		int number;
+
 		do {
 			System.out.println(comunicate);
 			while (!sc.hasNextInt()) {
 				String input = sc.next();
-				System.out.printf("%s nie jest poprawnym numerem \n", input);
+				System.out.printf("%s pozycja nie jest poprawna pozycja \n", input);
 			}
 			number = sc.nextInt();
 		} while (number < 0);
+		return number;
+	
 
 	}
 
