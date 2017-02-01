@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
-//TODO 3)generowanie mapy
+//TODO 1) Usunac niepotrzebny kod
+//TODO 2) 
+//TODO 3)generowanie mapy (poprawic i przetestowac/przedebugowac- nie dziala jeszcze zawsze)
 //TODO 4)generowanie klucza do mapy
 //TODO 5)lista zawierajaca mapy z poziomami
 
