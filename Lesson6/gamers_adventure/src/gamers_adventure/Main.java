@@ -44,19 +44,15 @@ public class Main {
 				oneRoundOfGame();
 				break;
 			case 1:
-
 				System.out.println("Twoja ilosc monet to " + currency);
 				break;
 			case 2:
-	
 				pricesOfUpgrades();
 				break;
 			case 3:
-
 				System.out.println("Pozion twojego komputera " + computerLevel);
 				break;
 			case 4:
-			
 				upgradesSystem();
 				break;
 			default:
