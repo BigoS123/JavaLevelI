@@ -1,2 +1,2 @@
-# JavaLevelIFundamentalsOfProceduralProgrammingInJava
-JavaLevelIFundamentalsOfProceduralProgrammingInJava
+# JavaLevelI
+JavaLevelI
