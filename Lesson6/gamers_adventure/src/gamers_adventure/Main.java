@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 
 public class Main {
-	static int compuerLevel = 1;
-	static int currency;
+	public static int computerLevel = 1;
+	static int currency = 0;
 	static char[][] gameBoard = new char[15][20];
 	static final int NUMBERS_OF_AVAILABLE_FIELDS = 30;
 	static final String[] DIRECTIONS = { "right", "up", "down" };
@@ -53,7 +53,7 @@ public class Main {
 				break;
 			case 3:
 
-				System.out.println("Pozion twojego komputera " + compuerLevel);
+				System.out.println("Pozion twojego komputera " + computerLevel);
 				break;
 			case 4:
 			
@@ -71,10 +71,10 @@ public class Main {
 		System.out.println(
 				"poziom komputera ulepsz jego sprawnosc co skutkuje wiekszym mnoznikiem monet (poziom komputera x monety za poziom");
 		System.out.println("Komputer na poziomie 1 darmowy");
-		System.out.println("Komputer na poziomie 2 10 monet");
-		System.out.println("Komputer na poziomie 3 25 monet");
-		System.out.println("Komputer na poziomie 4 50 monet");
-		System.out.println("ZAOKONCZENIE GRY 100 MONTE");
+		System.out.println("Komputer na poziomie 2 5 monet");
+		System.out.println("Komputer na poziomie 3 10 monet");
+		System.out.println("Komputer na poziomie 4 20 monet");
+		System.out.println("ZAOKONCZENIE GRY 30 MONET");
 
 	}
 
@@ -86,25 +86,13 @@ public class Main {
 		choice = sc.nextInt();
 		switch (choice) {
 		case 2:
-			if (currency >= 5) {
-				currency = currency - 5;
-			} else {
-				System.out.println("Masz za malo monet");
-			}
+			upgradingComputer(5, 2);
 			break;
 		case 3:
-			if (currency >= 10) {
-				currency = currency - 10;
-			} else {
-				System.out.println("Masz za malo monet");
-			}
+			upgradingComputer(10, 3);
 			break;
 		case 4:
-			if (currency >= 20) {
-				currency = currency - 20;
-			} else {
-				System.out.println("Masz za malo monet");
-			}
+			upgradingComputer(20, 4);
 			break;
 		default:
 			System.out.println("Nie ma takiego pziomu komputera");
@@ -123,7 +111,7 @@ public class Main {
 
 	public static void levelsReward(boolean passedLevel) {
 		if (passedLevel) {
-			int currencyGained = compuerLevel * 1;
+			int currencyGained = computerLevel * 1;
 			currency = currency + currencyGained;
 			System.out.println("Masz obecnie: " + currency + " kredytow");
 		}
@@ -233,5 +221,14 @@ public class Main {
 		System.out.println("Wprowadz klucz do labiryntu");
 		Scanner sc = new Scanner(System.in);
 		return sc.nextLine();
+	}
+	public static void upgradingComputer(int ammountOfCoins, int computerLevelAfterUpgrade){
+		if (currency >= ammountOfCoins) {
+			currency = currency - ammountOfCoins;
+			computerLevel = computerLevelAfterUpgrade;
+			System.out.println("Komputer zostal ulepszony na "+ computerLevel + " poziom");
+		} else {
+			System.out.println("Masz za malo monet");
+		}
 	}
 }
